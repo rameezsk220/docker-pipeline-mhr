@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    tools {
+        maven 'MAVEN'
+    }
+    stages{
+        stage('mavenbuild'){
+            steps {
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/hanumantharao19/docker-pipeline-mhr.git']]])
+            sh "mvn -Dmaven.test.failure.ingnore=true clean package"
+            
+            }
+        }
+        stage('build docker iamge'){
+            steps{
+                script{
+                    
+                sh 'docker build -t hanumantharao1986/javaimage .'
+                
+                }
+            }
+        }
+        stage('push docker iamge into docker hub'){
+           steps {
+               script {
+                   withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerpassword')]) {
+                   sh 'docker login -u hanumantharao1986 -p ${dockerpassword}'
+                   sh 'docker push hanumantharao1986/javaimage'
+                   }
+               }
+           }
+    }  }
+}
