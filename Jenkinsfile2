@@ -13,8 +13,19 @@ pipeline {
         }
         stage ('maven build'){
             steps {
-                sh 'mvn clean install'
+                sh 'mvn'
             }
         }
     }
+    post {
+        always {
+            echo " build is success completly always"
+        }
+        success {
+            echo 'build is got sucess completly'
+        }
+        failure {
+            echo "build is failed pelase cosole output for debug the logs
+        }
+      }
 }
