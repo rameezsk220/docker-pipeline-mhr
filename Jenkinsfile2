@@ -18,14 +18,12 @@ pipeline {
         }
     }
     post {
-        always {
-            echo " build is success completly always"
-        }
+       
         success {
-            echo 'build is got sucess completly'
+            echo 'build got success'
         }
         failure {
-            echo "build is failed pelase cosole output for debug the logs"
+            echo "build got faild so pelase check the cosole output for debug the logs"
         }
       }
 }
