@@ -25,7 +25,7 @@ pipeline {
             echo 'build is got sucess completly'
         }
         failure {
-            echo "build is failed pelase cosole output for debug the logs
+            echo "build is failed pelase cosole output for debug the logs"
         }
       }
 }
