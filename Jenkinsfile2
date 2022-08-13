@@ -17,7 +17,7 @@ pipeline {
         }
         stage ('maven build'){
             steps {
-                sh 'mvn ${params.name}'
+                echo "my name is  ${params.name}"
             }
         }
     }
