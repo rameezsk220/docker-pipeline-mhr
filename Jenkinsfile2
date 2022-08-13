@@ -39,8 +39,9 @@ pipeline {
                     }
                }
        }
+     }
     }
-    post {
+  post {
        
         success {
             echo 'build got success'
@@ -49,5 +50,4 @@ pipeline {
             echo "build got faild so pelase check the cosole output for debug the logs"
         }
       }
-}
 }
