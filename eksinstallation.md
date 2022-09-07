@@ -4,10 +4,13 @@ Steps to install chocolatey in windows10
 -------------------------------
 Step1
 Get-ExecutionPolicy
+
 Step2)
 Set-ExecutionPolicy AllSigned
 
+
 Step3)
+
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1’))
 
 Create EKS cluster in AWS
