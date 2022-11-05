@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+    tools {
+        maven 'maven 3.8.6'
+    }
+    
+    stages{
+        
+        stage('git checkout'){
+            steps{
+            
+                 git 'https://github.com/hanumantharao19/docker-pipeline-mhr.git'
+            }
+        }
+        
+        stage('maven clean ') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+        stage('docker build') {
+            steps{
+             sh 'docker build -t hanumantharao1986/septjavaimage:v4 .'
+            }
+        }
+        
+        stage('docker login') {
+            steps {
+                withCredentials([string(credentialsId: 'sepdockerhub', variable: 'dockerpass')]) {
+                    sh 'docker login -u hanumantharao1986 -p ${dockerpass}'
+                   }
+            }
+        }
+        stage('push docker image to docker hub '){
+            steps{
+                sh 'docker push hanumantharao1986/septjavaimage:v4'
+            }
+        }
+    }
+}
