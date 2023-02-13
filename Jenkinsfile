@@ -1,10 +1,20 @@
 pipeline {
     
     agent any
+    parameters {
+        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+    }
+    
+    
     tools {
         maven 'maven-3.9.0'
     }
     stages {
+          stage('docker pipeline'){
+            steps {
+                echo "Hello ${params.PERSON}"
+            }
+         }
         stage('git repo clone') {
             steps {
                 git 'https://github.com/hanumantharao19/docker-pipeline-mhr.git'
