@@ -2,7 +2,7 @@ Git questions
 ------------
 git config --global user.name “hanumantharao”
 
-git config  --global user.email “hanumantharao1986.medikonda@gmail.com” 
+git config  --global user.email “********” 
 
 git init reponame  ---it is used to intiailse the new repository
 
