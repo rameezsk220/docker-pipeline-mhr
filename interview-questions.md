@@ -41,5 +41,39 @@ git diff  <first branch>  <second branch>  --This command shows the differences 
   
 git rm  <filename> This command deletes the file from your working directory and stages the deletion
 
+  git checkout filename  ---It is used to discard the changes in the file
+
+git checkout *    ---> it is used to discard changes in all files
+
+git reset *  ---> it is used to un stage the all files
+  
+git reset filename or git reset HEAD filename  ---> it is used to un stage the file from staging area
+  
+git reset HEAD~1  -it is to used to undo the  last commit in local repo
+  
+git reset HEAD~2  ---it is to  undo last three commits
+  
+git reset --soft HAED~1 --undo the recent commit but files available in staging area
+  
+git reset --hard HEAD~1 --undo the recent commit and files also not available in working area
+  
+git reset  <commitid>  -- This command undoes all the commits after the specified commit and preserves the changes locally.
+
+git show  <commitid> --> it will display committed file and changed content
+  
+git stash  # it is used to save changes which are doing in the git tracked files
+  
+git stash list # to list the stashs
+  
+git stash apply # it is used to apply the latest changes to the repo
+  
+git stash pop  # it is used to apply the  latest changes  to the repo and remove the stash in the list
+  
+git stash drop # it issued to remove the stash and removed the  changes in working directory
+  
+git stash clear # it used to clear all stashs
+
+
+
 
 
